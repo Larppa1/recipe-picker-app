@@ -96,6 +96,7 @@ export default function App() {
 }
 
 async function searchByIngredient() {
+  window.scrollTo(0, 100)
   const ingredient = document.getElementById('searchBar').value
 
   let response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}&tags=${ingredient}&number=1`)
