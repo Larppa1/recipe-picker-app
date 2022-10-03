@@ -1,3 +1,5 @@
+/*GLOBAL*/
+
 * {
   box-sizing: border-box;
 }
@@ -18,13 +20,7 @@ body {
   max-width: 100%;
 }
 
-.menu > li > a {
-  color: black;
-}
-
-.navbar-end {
-  visibility: hidden;
-}
+/*Home.js*/
 
 .searchContainer {
   display: flex;
@@ -135,6 +131,8 @@ body {
   padding-inline: 5vw;
 }
 
+/*Recipe.js*/
+
 .recipeInfoContainer {
   display: flex;
   flex-direction: column;
@@ -144,4 +142,18 @@ body {
 
 .recipeInfoContainer > article {
   margin-bottom: 2vh;
+}
+
+/*Navbar.js*/
+
+.navbar-center > :first-child {
+  color: white;
+}
+
+.menu > li > a {
+  color: black;
+}
+
+.navbar-end {
+  visibility: hidden;
 }

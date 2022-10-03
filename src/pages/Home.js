@@ -1,13 +1,14 @@
 import '../Styles.css';
 import Navbar from '../components/Navbar';
-import { setInstructions, setRecipeName } from '../data/Data'
+import { setInstructions } from '../data/Instructions';
+import { setRecipeName } from '../data/RecipeName';
 import Footer from '../components/Footer';
 
 const apiKey = '65a0f9bcccea4b898ae0628dbe448fd1'
 var instructions = ''
 var recipeName = ''
 
-export default function Homepage() {
+export default function Home() {
   return (
     <div className="container">
       <Navbar />
@@ -33,25 +34,25 @@ export default function Homepage() {
           <div className="form-control">
             <label className="label cursor-pointer">
               <span className="label-text">Dairy-free</span> 
-              <input id='dairyFree' type="checkbox" unchecked className="checkbox checkbox-primary" />
+              <input id='dairyFree' type="checkbox" unchecked='true' className="checkbox checkbox-primary" />
             </label>
           </div>
           <div className="form-control">
             <label className="label cursor-pointer">
               <span className="label-text">Gluten-free</span> 
-              <input id='glutenFree' type="checkbox" unchecked className="checkbox checkbox-primary" />
+              <input id='glutenFree' type="checkbox" unchecked='true' className="checkbox checkbox-primary" />
             </label>
           </div>
           <div className="form-control">
             <label className="label cursor-pointer">
               <span className="label-text">Vegan</span> 
-              <input id='vegan' type="checkbox" unchecked className="checkbox checkbox-primary" />
+              <input id='vegan' type="checkbox" unchecked='true' className="checkbox checkbox-primary" />
             </label>
           </div>
           <div className="form-control">
             <label className="label cursor-pointer">
               <span className="label-text">Vegetarian</span> 
-              <input id='vegetarian' type="checkbox" unchecked className="checkbox checkbox-primary" />
+              <input id='vegetarian' type="checkbox" unchecked='true' className="checkbox checkbox-primary" />
             </label>
           </div>
         </div>

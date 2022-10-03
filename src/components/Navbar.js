@@ -1,3 +1,18 @@
+/*
+*
+* Purpose:
+* - navbar element
+* - used in all pages
+*
+* Contents:
+* - custom Tailwind <div/> navbar bg-primary text-primary-content, base div for navbar
+* -     -> custom Tailwind <div/> navbar-start, containing dropdown menu
+* -     -> custom Tailwind <div/> navbar-center, containing title
+* -     -> custom Tailwind <div/> navbar-end, hidden because no use for its elements,
+*          not deleted in order to have navbar-center centered
+*
+*/
+
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
@@ -60,6 +75,7 @@ export default function Navbar() {
                         </svg>
                         <span className="badge badge-xs badge-primary indicator-item" />
                     </div>
+                    {/*END OF indicator*/}
                 </button>
             </div>
             {/*END OF navbarEnd*/}
