@@ -41,7 +41,7 @@ export default function Homepage() {
       <div className='searchContainer'>
         <input id='searchBar' type="text" placeholder="Search by ingredient..." onKeyPress={(e) => {
           if(e.key === 'Enter') {
-            document.getElementById('searchBar').readOnly = true
+            e.target.blur()
             searchByIngredient()
           }
         }}
