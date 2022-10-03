@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../Styles.css';
+import Recipe from '../components/Recipe';
 
 export default function Recipes() {
   return (
@@ -12,7 +13,7 @@ export default function Recipes() {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
               </label>
               <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                <li><Link to="/">Homepage</Link></li>
+                <li><Link to="/">Home</Link></li>
                 <li><Link to="/recipes">Recipes</Link></li>
               </ul>
             </div>
@@ -36,6 +37,9 @@ export default function Recipes() {
         </div>
       </div>
       {/*END OF navbarContainer*/}
+      <div className='recipesContainer'>
+        <Recipe />
+      </div>
       <footer className="footer footer-center p-4 bg-base-300 text-base-content">
         <div>
           <p>© 2022 - RecipeDB</p>

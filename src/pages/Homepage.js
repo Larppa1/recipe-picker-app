@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import '../Styles.css';
+import { setInstructions, setRecipeName } from '../data/Data'
 
 const apiKey = '65a0f9bcccea4b898ae0628dbe448fd1'
+var instructions = ''
+var recipeName = ''
 
 export default function Homepage() {
   return (
@@ -14,7 +17,7 @@ export default function Homepage() {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
               </label>
               <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                <li><Link to="/">Homepage</Link></li>
+                <li><Link to="/">Home</Link></li>
                 <li><Link to="/recipes">Recipes</Link></li>
               </ul>
             </div>
@@ -43,6 +46,7 @@ export default function Homepage() {
           if(e.key === 'Enter') {
             e.target.blur()
             searchByIngredient()
+            
           }
         }}
         className="input input-bordered w-full max-w-xs" />
@@ -94,11 +98,13 @@ export default function Homepage() {
       <div className='btnContainer'>
         <button className="btn btn-circle btn-outline" onClick={() => {
           document.getElementById('card').scrollTo(0, 0)
-          searchByIngredient()}
-        }>
+          searchByIngredient()
+          }}>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
-        <button className="btn btn-circle btn-primary" onClick={() => getRecipe()}>
+        <button className="btn btn-circle btn-primary" onClick={() => {
+          setRecipe()
+        }}>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="#000" viewBox="0 0 50 50" stroke="#000"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M 41.9375 8.625 C 41.273438 8.648438 40.664063 9 40.3125 9.5625 L 21.5 38.34375 L 9.3125 27.8125 C 8.789063 27.269531 8.003906 27.066406 7.28125 27.292969 C 6.5625 27.515625 6.027344 28.125 5.902344 28.867188 C 5.777344 29.613281 6.078125 30.363281 6.6875 30.8125 L 20.625 42.875 C 21.0625 43.246094 21.640625 43.410156 22.207031 43.328125 C 22.777344 43.242188 23.28125 42.917969 23.59375 42.4375 L 43.6875 11.75 C 44.117188 11.121094 44.152344 10.308594 43.78125 9.644531 C 43.410156 8.984375 42.695313 8.589844 41.9375 8.625 Z" /></svg>
         </button>
       </div>
@@ -136,9 +142,11 @@ async function searchByIngredient() {
   document.getElementById('title').innerHTML = data.recipes[0].title
   document.getElementById('summary').innerHTML = data.recipes[0].summary
   document.getElementById('img').src = data.recipes[0].image
-  console.log(data.recipes[0])
+  instructions = data.recipes[0].instructions
+  recipeName = data.recipes[0].title
 }
 
-async function getRecipe() {
-  console.log('hello')
+async function setRecipe() {
+  setRecipeName(recipeName)
+  setInstructions(instructions)
 }
