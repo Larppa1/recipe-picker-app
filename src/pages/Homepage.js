@@ -39,7 +39,12 @@ export default function Homepage() {
       </div>
       {/*END OF navbarContainer*/}
       <div className='searchContainer'>
-        <input id='searchBar' type="text" placeholder="Search by ingredient..." onKeyPress={(e) => e.key === 'Enter' && searchByIngredient()}
+        <input id='searchBar' type="text" placeholder="Search by ingredient..." onKeyPress={(e) => {
+          if(e.key === 'Enter') {
+            document.getElementById('searchBar').readOnly = true
+            searchByIngredient()
+          }
+        }}
         className="input input-bordered w-full max-w-xs" />
       </div>
       <div className='optionsContainer'>
