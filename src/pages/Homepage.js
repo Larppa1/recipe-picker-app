@@ -114,7 +114,7 @@ export default function Homepage() {
 
 async function searchByIngredient() {
   window.scrollTo({
-    top: 150,
+    top: 200,
     behavior: 'smooth',
   })
   const ingredient = document.getElementById('searchBar').value
