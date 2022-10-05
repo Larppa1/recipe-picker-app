@@ -17,6 +17,7 @@ export default function Home() {
           id='searchBar'
           className="input input-bordered w-full max-w-xs"
           type="text"
+          pattern="[a-zA-Z].{2,50}"
           placeholder="Search by ingredient..."
           onKeyPress={(e) => {
             if(e.key === 'Enter') {
@@ -90,11 +91,27 @@ export default function Home() {
 }
 
 async function searchByIngredient() {
+  const searchBar = document.getElementById('searchBar')
+  if(!searchBar.validity.valid) {
+    searchBar.animate([
+      {transform: 'translateX(0vw)'},
+      {transform: 'translateX(2vw)'},
+
+      {transform: 'translateX(0vw)'},
+      {transform: 'translateX(-2vw)'},
+
+      {transform: 'translateX(0vw)'},
+      {transform: 'translateX(2vw)'},
+    ], {
+      duration: 200
+    })
+    return;
+  }
   window.scrollTo({
     top: 200,
     behavior: 'smooth',
   })
-  const ingredient = document.getElementById('searchBar').value
+  const ingredient = searchBar.value
   let parameters = {
     dairyFree: '',
     glutenFree: '',
